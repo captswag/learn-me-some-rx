@@ -12,7 +12,7 @@ class RepositoryImpl : Repository {
         }
 
     private fun getChatMessage(): Chat {
-        val id = (0..10).random() // Ids can be from 0 to 10
+        val id = (0..10).random()
         return Chat(id, getRandomMessage(id), getUnreadStatus(), getRating())
     }
 
