@@ -4,13 +4,28 @@ import io.reactivex.rxjava3.core.Observable
 import pojo.Chat
 import java.util.concurrent.TimeUnit
 
+const val CHAT_ID = 1
+const val CHAT_STATUS = true
+const val CHAT_RATING = 5
+
 class RepositoryImpl : Repository {
 
     override fun getInterval(): Observable<Long> = Observable.interval(2, TimeUnit.SECONDS)
 
-    override fun getChatMessages(): Observable<Chat> {
-        val id = (0..10).random()
-        return Observable.just(Chat(id, getRandomMessage(id), getUnreadStatus(), getRating()))
+    override fun getChatMessages(random: Boolean): Observable<Chat> {
+        val id: Int
+        val unreadStatus: Boolean
+        val rating: Int
+        if (random) {
+            id = (0..10).random()
+            unreadStatus = (0..1).random() == 0
+            rating = (0..5).random()
+        } else {
+            id = CHAT_ID
+            unreadStatus = CHAT_STATUS
+            rating = CHAT_RATING
+        }
+        return Observable.just(Chat(id, getRandomMessage(id), unreadStatus, rating))
     }
 
     private fun getRandomMessage(id: Int): String = when (id) {
@@ -26,11 +41,4 @@ class RepositoryImpl : Repository {
         9 -> "That's your problem"
         else -> "But the way you show off"
     }
-
-    private fun getUnreadStatus(): Boolean {
-        val flag = (0..1).random()
-        return flag == 0
-    }
-
-    private fun getRating() = (0..5).random()
 }

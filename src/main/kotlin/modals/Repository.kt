@@ -5,5 +5,5 @@ import pojo.Chat
 
 interface Repository {
     fun getInterval(): Observable<Long>
-    fun getChatMessages(): Observable<Chat>
+    fun getChatMessages(random: Boolean = false): Observable<Chat>
 }
