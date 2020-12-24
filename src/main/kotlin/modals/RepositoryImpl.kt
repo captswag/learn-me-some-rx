@@ -6,14 +6,11 @@ import java.util.concurrent.TimeUnit
 
 class RepositoryImpl : Repository {
 
-    override fun getChatMessages(): Observable<Chat> = Observable.interval(2, TimeUnit.SECONDS)
-        .flatMap {
-            Observable.just(getChatMessage())
-        }
+    override fun getInterval(): Observable<Long> = Observable.interval(2, TimeUnit.SECONDS)
 
-    private fun getChatMessage(): Chat {
+    override fun getChatMessages(): Observable<Chat> {
         val id = (0..10).random()
-        return Chat(id, getRandomMessage(id), getUnreadStatus(), getRating())
+        return Observable.just(Chat(id, getRandomMessage(id), getUnreadStatus(), getRating()))
     }
 
     private fun getRandomMessage(id: Int): String = when (id) {
