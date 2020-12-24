@@ -10,5 +10,6 @@ Learn about things that I usually don't get to play with. Some examples include
 
 What next?
 
-1. Difference between FlatMap, SwitchMap and ConcatMap (hope no other maps exist)
-2. Difference between merge and zip
+- [x] Difference between FlatMap, SwitchMap and ConcatMap
+- [ ] Difference between merge and zip
+- [ ] Using PublishSubject, BehaviourSubject, AsyncSubject and ReplaySubject
