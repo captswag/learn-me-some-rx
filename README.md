@@ -2,14 +2,12 @@
 
 Learn about things that I usually don't get to play with. Some examples include
 
-1. Using operators I have never used before
-2. Creating custom operators
-3. Backpressure
-4. Differences between Flowable and Observable
-5. Transform function
-
-What next?
+### What next?
 
 - [x] Difference between FlatMap, SwitchMap and ConcatMap
-- [ ] Difference between merge and zip
+- [ ] Difference between merge, zip and combineLatest
 - [ ] Using PublishSubject, BehaviourSubject, AsyncSubject and ReplaySubject
+- [ ] Create custom operator
+- [ ] What's backpressure
+- [ ] Difference between Observable, Flowable, Single, Completable, Maybe and Optional
+- [ ] Custom transformations
