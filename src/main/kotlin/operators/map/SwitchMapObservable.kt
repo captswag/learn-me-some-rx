@@ -8,7 +8,7 @@ class SwitchMapObservable : MapObservable() {
         return emitNumbers()
             .switchMap {
                 println("switchMap $it")
-                joinToString(it).delay((startRange..endRange).random().toLong(), TimeUnit.SECONDS)
+                joinToString(it).delay(getRandomDelay(it), TimeUnit.SECONDS)
             }
             .doOnNext {
                 println("doOnNext $it")

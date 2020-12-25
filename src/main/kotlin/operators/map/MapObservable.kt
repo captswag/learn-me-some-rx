@@ -3,9 +3,7 @@ package operators.map
 import io.reactivex.rxjava3.core.Observable
 
 abstract class MapObservable {
-    protected val startRange = 2
-    protected val endRange = 8
-
+    // Never change the below value
     fun emitNumbers(): Observable<Int> = Observable.just(1, 2, 3, 4, 5)
     fun joinToString(number: Int): Observable<String> {
         println("joinToString: $number")
@@ -24,4 +22,12 @@ abstract class MapObservable {
             else -> "Vamanos"
         }
     }"
+
+    fun getRandomDelay(number: Int): Long = when (number) {
+        1 -> 2
+        2 -> 1
+        3 -> 7
+        4 -> 3
+        else -> 1
+    }
 }

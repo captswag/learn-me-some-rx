@@ -8,7 +8,7 @@ class FlatMapObservable : MapObservable() {
         return emitNumbers()
             .flatMap {
                 println("flatMap $it")
-                joinToString(it).delay((startRange..endRange).random().toLong(), TimeUnit.SECONDS)
+                joinToString(it).delay(getRandomDelay(it), TimeUnit.SECONDS)
             }
             .doOnNext {
                 println("doOnNext $it")
