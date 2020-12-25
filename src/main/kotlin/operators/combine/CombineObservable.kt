@@ -5,8 +5,14 @@ import io.reactivex.rxjava3.core.Scheduler
 import java.util.concurrent.TimeUnit
 
 abstract class CombineObservable {
-    fun emitNumbers(scheduler: Scheduler): Observable<Int> =
+    fun emitNumbers1(scheduler: Scheduler): Observable<Int> =
         Observable.just(1, 2, 3)
+            .flatMap {
+                Observable.just(it).delay(getNumbersDelay(it), TimeUnit.SECONDS, scheduler)
+            }
+
+    fun emitNumbers2(scheduler: Scheduler): Observable<Int> =
+        Observable.just(4, 5, 6)
             .flatMap {
                 Observable.just(it).delay(getNumbersDelay(it), TimeUnit.SECONDS, scheduler)
             }
@@ -21,7 +27,10 @@ abstract class CombineObservable {
         1 -> 1
         2 -> 2
         3 -> 3
-        else -> 4
+        4 -> 0
+        5 -> 1
+        6 -> 5
+        else -> 1
     }
 
     private fun getNamesDelay(name: String): Long = when (name) {
