@@ -1,6 +1,7 @@
 package operators.map
 
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Scheduler
 
 abstract class MapObservable {
     // Never change the below value
@@ -10,7 +11,7 @@ abstract class MapObservable {
         return Observable.just(getRandomString(number))
     }
 
-    abstract fun implementMap(): Observable<String>
+    abstract fun implementMap(scheduler: Scheduler): Observable<String>
 
     private fun getRandomString(number: Int): String = "$number: ${
         when (number) {
