@@ -10,7 +10,7 @@ Learn about things that I usually don't get to play with. Some examples include
 - [ ] Create custom operator
 - [ ] What's backpressure
 - [ ] Difference between Observable, Flowable, Single, Completable, Maybe and Optional
-- [ ] Custom transformations
+- [x] Custom transformations
 
 ### Interesting articles
 
