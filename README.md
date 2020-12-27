@@ -8,7 +8,7 @@ Learn about things that I usually don't get to play with. Some examples include
 - [x] Difference between merge, zip and combineLatest
 - [x] Using PublishSubject, BehaviourSubject, AsyncSubject and ReplaySubject
 - [ ] What's backpressure
-- [ ] Difference between Observable, Flowable, Single, Completable, Maybe and Optional
+- [x] Difference between Observable, Flowable, Single, Completable, Maybe and Optional
 - [x] Custom transformations
 - [ ] Create custom operator
 
